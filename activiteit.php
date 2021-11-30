@@ -30,11 +30,11 @@ $activiteiten->activiteitenOphalen();
 <body>
 <div>
     <nav class="bg-green-500 dark:bg-green-800 shadow ">
-        <div class="max-w-7xl mx-auto px-8">
+        <div class="mx-auto px-8">
             <div class="flex items-center justify-between h-16">
                 <div class=" flex items-center">
                     <a class="flex-shrink-0" href="/">
-                        <a class="text-white px-3 py-2 rounded-md text-sm font-medium">
+                        <a class="text-white px-3 py-2 rounded-md text-sm font-bold">
                             Projectbureau
                         </a>
                     </a>
@@ -73,22 +73,22 @@ $activiteiten->activiteitenOphalen();
 				<table class="min-w-full leading-normal">
 					<thead>
 						<tr>
-							<th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+							<th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold">
 								Activiteitnaam
 							</th>
-							<th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+							<th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold">
 								Begindatum
 							</th>
-							<th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+							<th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold">
 								Einddatum
 							</th>
-							<th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+							<th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold">
 								Locatie
 							</th>
-							<th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+							<th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold">
 								Deelnemers
 							</th>
-							<th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+							<th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold">
 								Acties
 							</th>
 						</tr>
@@ -140,16 +140,17 @@ $activiteiten->activiteitenOphalen();
 							"
 							<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
 								<p class='text-gray-900 whitespace-no-wrap'>
-								"; echo $item['maximum'];"  
+								"; echo $item['minimum'] .' / '. $item['maximum'];"  
 								</p>
 							</td>";
 							echo 
 							'
 							<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-								<form class="inline" method="POST" action="activiteitDelete.php">
+								<form class="inline py-2" name="form1" method="POST" action="activiteitDelete.php">
 									<button name="verwijderen" value="'.$item['id'].'" type="submit"><i class="far fa-trash-alt"></i></button> 
 								</form>
-								<a href="wijzigengebruiker.php?id='.$item['id'].'" type="submit"><i class="fas fa-edit"></i></a> 
+								<a class="px-5" href="activiteitWijzigen.php?id='.$item['id'].'" type="submit"><i class="fas fa-edit"></i></a> 
+                                <a href="presentie.php?id='.$item['id'].'" type="submit"><i class="far fa-list-alt"></i></a> 
 							</td>
 					</tr>';} ?>
 				</tbody>
