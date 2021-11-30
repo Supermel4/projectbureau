@@ -65,7 +65,7 @@ $activiteiten->activiteitenOphalen();
 
 <div class="pagewrapper">
 	<div class="px-4 py-5 bg-white sm:p-6">
-        <a href="#" class="btn-primary"><button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors duration-500"><i class="fas fa-plus"></i> Toevoegen</button></a>
+        <a href="activiteitAanmaken.php" class="btn-primary"><button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors duration-500"><i class="fas fa-plus"></i> Toevoegen</button></a>
 	</div>
 	<div class="px-4 py-5 bg-white sm:p-6">
 		<div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
@@ -102,14 +102,12 @@ $activiteiten->activiteitenOphalen();
 
                         foreach ($activiteiten_result as $item)
 						{
-  
                         $orgStartDate = $item['begindatum'];  
-                        $newStartDate = date("d-m-Y H:i:s", strtotime($orgStartDate));  
+                        $newStartDate = date("d-m-Y H:i", strtotime($orgStartDate));  
                         
                         $orgEndDate = $item['einddatum'];  
-                        $newEndDate = date("d-m-Y H:i:s", strtotime($orgEndDate));  
-
-                        }
+                        $newEndDate = date("d-m-Y H:i", strtotime($orgEndDate));  
+                        
 
 							echo 
 							"
@@ -153,7 +151,7 @@ $activiteiten->activiteitenOphalen();
 								</form>
 								<a href="wijzigengebruiker.php?id='.$item['id'].'" type="submit"><i class="fas fa-edit"></i></a> 
 							</td>
-					</tr>'; ?>
+					</tr>';} ?>
 				</tbody>
 
 </body>        
