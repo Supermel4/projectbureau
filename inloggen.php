@@ -52,7 +52,7 @@ session_start();
 					?>
 					<div class="flex w-full">
 						<button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 w-full rounded-md"  stype="submit" id='login' name="login">
-							Inloggen
+							Inloggen ofzo
                             <i class="fas fa-arrow-right"></i>
 						</button>
 					</div>
