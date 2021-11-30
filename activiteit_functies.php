@@ -27,4 +27,11 @@ public function activiteitToevoegen($activiteitnaam, $begindatum, $einddatum, $l
     $stmt->execute();
     header("location:activiteit.php");
 }
+
+public function activiteitVerwijderen($id) {
+    $stmt = $this->database->connection->prepare("DELETE FROM activiteiten WHERE id= ?");
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+}
+
 }
