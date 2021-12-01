@@ -102,11 +102,13 @@ $activiteiten->activiteitenOphalen();
 
                         foreach ($activiteiten_result as $item)
 						{
+                        setlocale(LC_TIME, array('da_NL.UTF-8','da_NL@euro','da_NL','dutch'));
+                            
                         $orgStartDate = $item['begindatum'];  
-                        $newStartDate = date("d-m-Y H:i", strtotime($orgStartDate));  
+                        $newStartDate = strftime("%A %e %B %Y", strtotime($orgStartDate));  
                         
                         $orgEndDate = $item['einddatum'];  
-                        $newEndDate = date("d-m-Y H:i", strtotime($orgEndDate));  
+                        $newEndDate = strftime("%A %e %B %Y", strtotime($orgEndDate));  
                         
 
 							echo 
@@ -119,14 +121,14 @@ $activiteiten->activiteitenOphalen();
 							echo
 							"<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
 								<p class='text-gray-900 whitespace-no-wrap'>
-									"; echo $newStartDate;"
+									"; echo ucfirst($newStartDate);"
 								</p>
 							</td>";
 
 							echo 
 							"<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
 								<p class='text-gray-900 whitespace-no-wrap'>
-								"; echo $newEndDate;" 
+								"; echo ucfirst($newEndDate);" 
 								</p>
 							</td>";
 
