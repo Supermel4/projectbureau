@@ -67,8 +67,7 @@ $activiteiten->activiteitenOphalen();
 	<div class="px-4 py-5 bg-white sm:p-6">
         <a href="activiteitAanmaken.php" class="btn-primary"><button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors duration-500"><i class="fas fa-plus"></i> Toevoegen</button></a>
 	</div>
-	<div class="px-4 py-5 bg-white sm:p-6">
-		<div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+		<div class="px-4 py-5 bg-white sm:p-6">
 			<div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
 				<table class="min-w-full leading-normal">
 					<thead>
@@ -105,10 +104,10 @@ $activiteiten->activiteitenOphalen();
                         setlocale(LC_TIME, array('da_NL.UTF-8','da_NL@euro','da_NL','dutch'));
                             
                         $orgStartDate = $item['begindatum'];  
-                        $newStartDate = strftime("%A %e %B %Y", strtotime($orgStartDate));  
+                        $newStartDate = strftime("%A %e %B %Y om %R", strtotime($orgStartDate));  
                         
                         $orgEndDate = $item['einddatum'];  
-                        $newEndDate = strftime("%A %e %B %Y", strtotime($orgEndDate));  
+                        $newEndDate = strftime("%A %e %B %Y om %R", strtotime($orgEndDate));  
                         
 
 							echo 
@@ -156,11 +155,6 @@ $activiteiten->activiteitenOphalen();
 							</td>
 					</tr>';} ?>
 				</tbody>
-
-</body>        
-
-</html>
-
 </body>
 
 </html>
