@@ -35,11 +35,11 @@ foreach ($activiteiten as $singleActiviteiten){
 <body>
 <div>
     <nav class="bg-green-500 dark:bg-green-800 shadow ">
-        <div class="max-w-7xl mx-auto px-8">
+        <div class="mx-auto px-8">
             <div class="flex items-center justify-between h-16">
                 <div class=" flex items-center">
                     <a class="flex-shrink-0" href="/">
-                        <a class="text-white px-3 py-2 rounded-md text-sm font-medium">
+                        <a class="text-white px-3 py-2 rounded-md text-sm font-bold">
                             Projectbureau
                         </a>
                     </a>

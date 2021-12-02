@@ -114,7 +114,7 @@ $activiteiten->activiteitenOphalen();
 							"
 							<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
 								<p class='text-gray-900 whitespace-no-wrap'>
-								"; echo $item['activiteitnaam'];"
+								"; echo ucfirst($item['activiteitnaam']);"
 								</p>
 							</td>";
 							echo
@@ -134,7 +134,7 @@ $activiteiten->activiteitenOphalen();
 							echo 
 							"<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
 								<p class='text-gray-900 whitespace-no-wrap'>
-									"; echo $item['locatie'];" 
+									"; echo ucfirst($item['locatie']);" 
 								</p>
 							</td>";
 							echo 
