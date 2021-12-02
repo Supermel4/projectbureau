@@ -3,6 +3,7 @@ require_once('dbConnection.php');
 class LoginUser{
 
     private $userid = [];
+    private $rol = [];
     private $database = [];
 
     // Db
