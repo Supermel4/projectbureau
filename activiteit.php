@@ -6,8 +6,9 @@ $pathprefix = '../../';
 // request activiteiten
 include_once('activiteit_functies.php');
 
-// Start session
-session_start();
+// Checks if user is logged in
+include "loginCheck.php";
+
 // Requests users
 $activiteiten = new Activiteit();
 $activiteiten->activiteitenOphalen();

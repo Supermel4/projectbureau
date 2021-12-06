@@ -1,4 +1,7 @@
 <?php
+// Checks if user is logged in
+include "loginCheck.php";
+
 // Gets the id of the activity
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

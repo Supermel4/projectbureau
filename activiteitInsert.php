@@ -1,6 +1,6 @@
 <?php
-// Start session
-session_start();
+// Checks if user is logged in
+include "loginCheck.php";
 
 // Includes user class
 include_once('activiteit_functies.php');

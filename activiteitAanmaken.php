@@ -1,4 +1,7 @@
-
+<?php
+// Checks if user is logged in
+include "loginCheck.php";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
