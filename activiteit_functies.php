@@ -25,16 +25,16 @@ public function activiteitToevoegen($activiteitnaam, $begindatum, $einddatum, $l
     $d1 = new DateTime($begindatum);
     $d2 = new DateTime($einddatum);
     if ($d1 == $d2) {
-        echo '<script>
-        alert("Toevoegen mislukt. Eindtijd kan niet gelijk zijn aan starttijd")
-        window.location = "activiteit.php";
-        </script>';
+        $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Begindatum en Eindatum mogen niet gelijk zijn';
+        header("Location:activiteitAanmaken.php");
 
     }elseif ($d1 > $d2) {
-        echo '<script>
-        alert("Toevoegen mislukt. Eindtijd kan niet kleiner zijn dan starttijd")
-        window.location = "activiteit.php";
-        </script>';
+        $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Eindatum mag niet eerder zijn dan de Begindatum';
+        header("Location:activiteitAanmaken.php");
+
+    }elseif(empty($_POST["form_name"])) {
+            $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Sommige velden zijn niet ingevuld';
+                    header("Location:activiteitAanmaken.php");
 
     }else{
         $stmt = $this->database->connection->prepare("INSERT INTO activiteiten (activiteitnaam,begindatum,einddatum,locatie,minimum,maximum) VALUES (?,?,?,?,?,?)");
@@ -57,16 +57,17 @@ public function activiteitWijzigen($id, $activiteitnaam, $begindatum, $einddatum
     $d1 = new DateTime($begindatum);
     $d2 = new DateTime($einddatum);
     if ($d1 == $d2) {
-        echo '<script>
-        alert("Wijzigen mislukt. Eindtijd kan niet gelijk zijn aan starttijd")
-        window.location = "activiteit.php";
-        </script>';
+        $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Begindatum en Eindatum mogen niet gelijk zijn';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
 
     }elseif ($d1 > $d2) {
-        echo '<script>
-        alert("Wijzigen mislukt. Eindtijd kan niet kleiner zijn dan starttijd")
-        window.location = "activiteit.php";
-        </script>';
+        $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Eindatum mag niet eerder zijn dan de Begindatum';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+
+    }elseif(empty($_POST["form_name"])) {
+            $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Sommige velden zijn niet ingevuld';
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
+
 
     }else{
         $stmt = $this->database->connection->prepare("UPDATE activiteiten SET activiteitnaam=?,begindatum=?,einddatum=?,locatie=?,minimum=?,maximum=? WHERE id= ?");
@@ -108,5 +109,29 @@ public function presentieOphalenActiviteit($aanmeldID){
     $result = $stmt->get_result();
     return $result;
 }
+
+/**
+     * @param $message
+     * @return string
+     * Echo this function to show an error message
+     */
+    public function error_message($message): string
+    {
+        return '
+    <script>setTimeout(function(){document.getElementById("error").classList.add("opacity-0")},4000);setTimeout(function(){document.getElementById("error").classList.add("hidden")},5000);</script>
+                    <div id="error" class=" duration-1000 transition-opacity fixed top-0 right-0 mt-5 mr-5 flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+                        <div class="flex items-center justify-center w-12 bg-red-500">
+                            <i class="fas fa-exclamation"></i>
+                        </div>
+
+                        <div class="px-4 py-2 pb-5 -mx-3">
+                            <div class="mx-3">
+                                <span class="font-semibold text-red-500 dark:text-red-400">Oeps!</span>
+                                <p class="text-sm text-gray-600 dark:text-gray-200">' . $message . '</p>
+                            </div>
+                        </div>
+                    </div>
+    ';
+    }
 
 }

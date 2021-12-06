@@ -69,18 +69,28 @@ foreach ($activiteiten as $singleActiviteiten){
 
 <br>
 <body>
-<br>
 <h1 class="text-3xl text-center">Activiteit wijzigen</h1>
 <div class="pagewrapper">
-
+    
 <div class="px-4 py-5 bg-white sm:p-6">
 <a href="activiteit.php" class="btn-primary"><button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition-colors duration-500"><i class="fas fa-arrow-left"></i> Terug</button></a>
 </div>
 
-    <div class="px-4 py-5 bg-white sm:p-6">
-        <div class="shadow overflow-hidden sm:rounded-md">
-            <div class="px-4 py-5 bg-white sm:p-6">
-                
+<div class="px-4 py-5 bg-white sm:p-6">
+    <div class="shadow overflow-hidden sm:rounded-md">
+        <div class="px-4 py-5 bg-white sm:p-6">
+            <div class="col-span-6 sm:col-span-3">
+
+            <?php
+						if (isset($_SESSION['message'])) {
+						?>
+							<div class="rounded-md border border-red-500 text-center text-red-500 font-semibold p-1 mb-4">
+								<?php echo $_SESSION['message']; ?>
+							</div>
+						<?php
+							unset($_SESSION['message']);
+						}
+					?>
         <?php
             if ($id != null){
 

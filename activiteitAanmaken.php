@@ -60,7 +60,16 @@ include "loginCheck.php";
         <div class="px-4 py-5 bg-white sm:p-6">
             <div class="col-span-6 sm:col-span-3">
                 
-            
+            					<?php
+						if (isset($_SESSION['message'])) {
+						?>
+							<div class="rounded-md border border-red-500 text-center text-red-500 font-semibold p-1 mb-4">
+								<?php echo $_SESSION['message']; ?>
+							</div>
+						<?php
+							unset($_SESSION['message']);
+						}
+					?>
                     </div>
                     <form action="activiteitInsert.php" method="post">
                         <div class="flex flex-wrap my-4">
