@@ -25,7 +25,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 <body>
 
 <div class="px-4 py-5 bg-white sm:p-6">
-<a href="#" class="btn-primary"><button class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded transition-colors duration-500"><i class="fas fa-arrow-left"></i> Terug</button></a>
+<a href="index.php" class="btn-primary"><button class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded transition-colors duration-500"><i class="fas fa-arrow-left"></i> Terug</button></a>
 </div>
 
 	<div class="flex items-center justify-center m-6">
