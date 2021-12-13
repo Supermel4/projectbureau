@@ -87,8 +87,8 @@ $activiteiten->activiteitenOphalen();
 							<br>
 							<h1 class="text-center">Locatie: <b>'.ucfirst($item['locatie']).'</b></h1>
                             <br>
-                            <a href=""><button class="bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-2xl transition-colors duration-500"><i class="fas fa-plus"></i> Aanmelden</button></a>
-                            <a href=""><button class="bg-red-400 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-2xl transition-colors duration-500"><i class="fas fa-minus"></i> Afmelden</button></a>
+                            <a href="aanmelden.php"><button class="bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-2xl transition-colors duration-500"><i class="fas fa-plus"></i> Aanmelden</button></a>
+                            <a href="afmelden.php"><button class="bg-red-400 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-2xl transition-colors duration-500"><i class="fas fa-minus"></i> Afmelden</button></a>
                             </div>
 							</div>
 							';
