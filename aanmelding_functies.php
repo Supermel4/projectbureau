@@ -15,8 +15,10 @@ public function __construct(){
 // Adds an attendance
 public function aanmeldingToevoegen($voornaam, $achternaam, $contact) {
     if(empty($voornaam) || empty($achternaam) || empty($contact)){
-        $errorAanmelding = '<i class="fas fa-exclamation-circle"></i> Sommige velden zijn niet ingevuld';
-        header("Location:aanmelden.php");
+        echo '<script>
+        alert("Aanmelding is mislukt! Vul alstublieft alle velden in.")
+        window.location = "aanmelden.php";
+        </script>';
 
     }else{
         $stmt = $this->database->connection->prepare("INSERT INTO aanmeldingen (voornaam,achternaam,contact) VALUES (?,?,?)");
@@ -29,10 +31,13 @@ public function aanmeldingToevoegen($voornaam, $achternaam, $contact) {
     }
 }
 
-public function aanmeldingVerwijderen($voornaam, $achternaam, $contact) {
+// Removes an attendance
+public function aanmeldingVerwijderen2($voornaam, $achternaam, $contact) {
     if(empty($voornaam) || empty($achternaam) || empty($contact)){
-        $errorAanmelding = '<i class="fas fa-exclamation-circle"></i> Sommige velden zijn niet ingevuld';
-        header("Location:afmelden.php");
+        echo '<script>
+        alert("afmelding is mislukt! Vul alstublieft alle velden in.")
+        window.location = "afmelding.php";
+        </script>';
 
     }else{
         $stmt = $this->database->connection->prepare("INSERT INTO aanmeldingen (voornaam,achternaam,contact) VALUES (?,?,?)");
@@ -42,10 +47,14 @@ public function aanmeldingVerwijderen($voornaam, $achternaam, $contact) {
         alert("Afmelding is gelukt!")
         window.location = "index.php";
         </script>';
-
     }
 }
 
+public function aanmeldingVerwijderen($voornaam, $achternaam, $contact) {
+    $stmt = $this->database->connection->prepare("DELETE FROM aanmeldingen WHERE voornaam= ?, achterbaan= ?, contact= ?");
+    $stmt->bind_param('sss', $voornaam, $achternaam, $contact);
+    $stmt->execute();
+}
 
 }
 ?>

@@ -10,7 +10,10 @@ $activiteiten = new Activiteit();
 if(isset($_POST['verwijderen']))
 {    
     $activiteiten->activiteitVerwijderen($_POST['verwijderen']);
-    header("location:activiteit.php");
+    echo '<script>
+    alert("Aanmelding is mislukt! Vul alstublieft alle velden in.")
+    window.location = "activiteit.php";
+    </script>';
 } else {
     header("location:activiteit.php");
     die;

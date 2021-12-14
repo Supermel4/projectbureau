@@ -72,7 +72,7 @@
 						}
 					?>
                     </div>
-                    <form action="activiteitInsert.php" method="post">
+                    <form action="aanmeldingDelete.php" method="post">
                         <div class="flex flex-wrap my-4">
                             <div class="flex-inherit w-60"><label class="font-semibold leading-10">Voornaam:</label></div>
                             <div class="flex-grow"><input type="text" name="voornaam" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
