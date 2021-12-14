@@ -95,7 +95,7 @@ public function presentieOphalen() {
 
 // Gets all attendance
 public function presentieOphalen2($activiteitid) {
-    $stmt = $this->database->connection->prepare('SELECT * FROM aanmeldingen WHERE activiteitid = ?');
+    $stmt = $this->database->connection->prepare('SELECT id,voornaam, achternaam, contact FROM aanmeldingen WHERE activiteitid = ?');
     $stmt->bind_param('i', $activiteitid);
     $stmt->execute();
     $result = $stmt->get_result();
