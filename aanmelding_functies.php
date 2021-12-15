@@ -13,7 +13,7 @@ public function __construct(){
 }
 
 // Adds an attendance
-public function aanmeldingToevoegen($voornaam, $achternaam, $contact) {
+public function aanmeldingToevoegen($activiteitid, $voornaam, $achternaam, $contact) {
     if(empty($voornaam) || empty($achternaam) || empty($contact)){
         echo '<script>
         alert("Aanmelding is mislukt! Vul alstublieft alle velden in.")
@@ -21,8 +21,8 @@ public function aanmeldingToevoegen($voornaam, $achternaam, $contact) {
         </script>';
 
     }else{
-        $stmt = $this->database->connection->prepare("INSERT INTO aanmeldingen (voornaam,achternaam,contact) VALUES (?,?,?)");
-        $stmt->bind_param('sss', $voornaam, $achternaam, $contact);
+        $stmt = $this->database->connection->prepare("INSERT INTO aanmeldingen (activiteitid, voornaam,achternaam,contact) VALUES (?,?,?,?)");
+        $stmt->bind_param('isss', $activiteitid, $voornaam, $achternaam, $contact);
         $stmt->execute();
         echo '<script>
         alert("Aanmelding is gelukt!")

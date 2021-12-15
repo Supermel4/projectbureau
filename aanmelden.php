@@ -1,5 +1,10 @@
 <?php
-
+// Gets the id of the activity
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+} else {
+    $id = null;
+}
 
 ?>
 
@@ -72,8 +77,14 @@
 						}
 					?>
                     </div>
+ <?php
+            if ($id != null){
+
+                echo '
+
                     <form action="aanmeldingInsert.php" method="post">
-                        <div class="flex flex-wrap my-4">
+                    <input type="text" value="'.  $_GET['id'] .'" name="activiteitid" class="hidden" required />
+                    <div class="flex flex-wrap my-4">
                             <div class="flex-inherit w-60"><label class="font-semibold leading-10">Voornaam:</label></div>
                             <div class="flex-grow"><input type="text" name="voornaam" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
                         </div>
@@ -93,6 +104,25 @@
                         </div>
                         </div>
                         </form>
+                        ';
+                    }else{
+                        echo '
+                        <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 w-100 md:w-80 m-auto">
+                            <div class="w-full text-center">
+                                <div class="flex flex-col justify-between">
+                                    <i class="my-2 fas fa-times text-red-400 text-4xl"></i>
+                                    <p class="text-md py-2 px-6 text-gray-800 dark:text-white font-bold">
+                                        Fout
+                                    </p>
+                                    <p class="text-gray-600 dark:text-gray-100 text-md py-2 px-6">
+                                        Deze activiteit bestaat niet, selecteer een andere activiteit om u aan te melden
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        ';
+                    }
+                ?>
                         </div>
                         </div>
                         </div>

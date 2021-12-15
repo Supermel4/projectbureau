@@ -93,7 +93,7 @@ public function presentieOphalen() {
     return $result;
 }
 
-// Gets all attendance
+// Gets all attendance with same id
 public function presentieOphalen2($activiteitid) {
     $stmt = $this->database->connection->prepare('SELECT id,voornaam, achternaam, contact FROM aanmeldingen WHERE activiteitid = ?');
     $stmt->bind_param('i', $activiteitid);
@@ -102,45 +102,5 @@ public function presentieOphalen2($activiteitid) {
     $result->fetch_assoc();
     return $result;
 }
-
-// public function getPresentieBijActiviteit($activiteitid){
-//     $stmt = $this->database->connection->prepare('SELECT voornaam, achternaam FROM aanmeldingen WHERE activiteitid = ?');
-//     $stmt->bind_param('i', $groepID);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     return $result; 
-// }
-
-// public function presentieOphalenActiviteit($aanmeldID){
-//     $stmt = $this->database->connection->prepare('SELECT aanmeldingen.id as aanmeldID, voornaam, achternaam, contact FROM aanmeldingen INNER JOIN activiteiten ON activiteiten.id = aanmeldingen.activiteitid WHERE gebruikers.id = ?');
-//     $stmt->bind_param('i', $aanmeldID);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     return $result;
-// }
-
-// /**
-//      * @param $message
-//      * @return string
-//      * Echo this function to show an error message
-//      */
-//     public function error_message($message): string
-//     {
-//         return '
-//     <script>setTimeout(function(){document.getElementById("error").classList.add("opacity-0")},4000);setTimeout(function(){document.getElementById("error").classList.add("hidden")},5000);</script>
-//                     <div id="error" class=" duration-1000 transition-opacity fixed top-0 right-0 mt-5 mr-5 flex w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
-//                         <div class="flex items-center justify-center w-12 bg-red-500">
-//                             <i class="fas fa-exclamation"></i>
-//                         </div>
-
-//                         <div class="px-4 py-2 pb-5 -mx-3">
-//                             <div class="mx-3">
-//                                 <span class="font-semibold text-red-500 dark:text-red-400">Oeps!</span>
-//                                 <p class="text-sm text-gray-600 dark:text-gray-200">' . $message . '</p>
-//                             </div>
-//                         </div>
-//                     </div>
-//     ';
-//     }
 
 }
