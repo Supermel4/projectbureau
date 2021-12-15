@@ -81,7 +81,6 @@ if (isset($_GET['id'])) {
             if ($id != null){
 
                 echo '
-
                     <form action="aanmeldingInsert.php" method="post">
                     <input type="text" value="'.  $_GET['id'] .'" name="activiteitid" class="hidden" required />
                     <div class="flex flex-wrap my-4">
@@ -99,7 +98,7 @@ if (isset($_GET['id'])) {
                         </div>
                         
                         <button type="submit" name="submit" value="Toevoegen" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-700 transition-colors duration-500">
-                            Opslaan
+                            Aanmelden
                         </button>
                         </div>
                         </div>

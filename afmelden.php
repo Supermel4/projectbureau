@@ -1,5 +1,10 @@
 <?php
-
+// Gets the id of the activity
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+} else {
+    $id = null;
+}
 
 ?>
 
@@ -62,18 +67,24 @@
             <div class="col-span-6 sm:col-span-3">
                 
             					<?php
-						if (isset($_SESSION['message'])) {
+						if (isset($errorAanmelding)) {
 						?>
 							<div class="rounded-md border border-red-500 text-center text-red-500 font-semibold p-1 mb-4">
-								<?php echo $_SESSION['message']; ?>
+								<?php echo $errorAanmelding ?>
 							</div>
 						<?php
-							unset($_SESSION['message']);
+							unset($errorAanmelding);
 						}
 					?>
                     </div>
+ <?php
+            if ($id != null){
+
+                echo '
+
                     <form action="aanmeldingDelete.php" method="post">
-                        <div class="flex flex-wrap my-4">
+                    <input type="text" value="'.  $_GET['id'] .'" name="activiteitid" class="hidden" required />
+                    <div class="flex flex-wrap my-4">
                             <div class="flex-inherit w-60"><label class="font-semibold leading-10">Voornaam:</label></div>
                             <div class="flex-grow"><input type="text" name="voornaam" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
                         </div>
@@ -88,11 +99,30 @@
                         </div>
                         
                         <button type="submit" name="submit" value="Toevoegen" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-700 transition-colors duration-500">
-                            Opslaan
+                            Afmelden
                         </button>
                         </div>
                         </div>
                         </form>
+                        ';
+                    }else{
+                        echo '
+                        <div class="shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 w-100 md:w-80 m-auto">
+                            <div class="w-full text-center">
+                                <div class="flex flex-col justify-between">
+                                    <i class="my-2 fas fa-times text-red-400 text-4xl"></i>
+                                    <p class="text-md py-2 px-6 text-gray-800 dark:text-white font-bold">
+                                        Fout
+                                    </p>
+                                    <p class="text-gray-600 dark:text-gray-100 text-md py-2 px-6">
+                                        Deze activiteit bestaat niet, selecteer een andere activiteit om u af te melden
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        ';
+                    }
+                ?>
                         </div>
                         </div>
                         </div>
