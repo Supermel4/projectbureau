@@ -16,8 +16,8 @@ public function __construct(){
 public function aanmeldingToevoegen($activiteitid, $voornaam, $achternaam, $contact) {
     if(empty($voornaam) || empty($achternaam) || empty($contact)){
         echo '<script>
-        alert("Aanmelding is mislukt! Vul alstublieft alle velden in.")
-        window.location = "aanmelden.php";
+        alert("Aanmelding is mislukt!\nVul alstublieft alle velden in.")
+        window.location = document.referrer;
         </script>';
 
     }else{
@@ -35,7 +35,7 @@ public function aanmeldingToevoegen($activiteitid, $voornaam, $achternaam, $cont
 public function aanmeldingVerwijderen2($voornaam, $achternaam, $contact) {
     if(empty($voornaam) || empty($achternaam) || empty($contact)){
         echo '<script>
-        alert("afmelding is mislukt! Vul alstublieft alle velden in.")
+        alert("Afmelding is mislukt! \nVul alstublieft alle velden in.")
         window.location = "afmelding.php";
         </script>';
 

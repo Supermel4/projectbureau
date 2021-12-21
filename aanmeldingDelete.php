@@ -8,13 +8,13 @@ if(isset($_POST['verwijderen']))
 {    
     $aanmeldingen->aanmeldingVerwijderen($_POST['verwijderen']);
     echo '<script>
-    alert("Afmelding is mislukt! Vul alstublieft alle velden in.")
+    alert("Afmelding is mislukt! /nVul alstublieft alle velden in.")
     window.location = "index.php";
     </script>';
 } else {
     echo '<script>
     alert("Er is iets flink misgegaan!")
-    window.location = "afmelden.php";
+    window.location = document.referrer;
     </script>';
     die;
 }
