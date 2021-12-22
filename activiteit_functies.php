@@ -103,4 +103,12 @@ public function presentieOphalen2($activiteitid) {
     return $result;
 }
 
+public function telPresentie($activiteitid){
+    $stmt = $this->database->connection->prepare('SELECT COUNT(id) as teller FROM aanmeldingen WHERE activiteitid=?');
+    $stmt->bind_param('i', $activiteitid);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_assoc();
+}
+
 }
