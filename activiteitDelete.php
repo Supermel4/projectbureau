@@ -11,7 +11,7 @@ if(isset($_POST['verwijderen']))
 {    
     $activiteiten->activiteitVerwijderen($_POST['verwijderen']);
     echo '<script>
-    alert("Aanmelding is mislukt! Vul alstublieft alle velden in.")
+    alert("Verwijderen is gelukt!")
     window.location = "activiteit.php";
     </script>';
 } else {
