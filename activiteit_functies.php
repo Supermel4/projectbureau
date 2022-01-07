@@ -14,7 +14,7 @@ public function __construct(){
 
 // Gets all activities
 public function activiteitenOphalen() {
-    $stmt = $this->database->connection->prepare('SELECT * FROM activiteiten');
+    $stmt = $this->database->connection->prepare('SELECT * FROM activiteiten ORDER BY begindatum');
     $stmt->execute();
     $result = $stmt->get_result();
     return $result;
