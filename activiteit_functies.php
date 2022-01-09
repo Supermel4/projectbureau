@@ -31,6 +31,10 @@ public function activiteitToevoegen($activiteitnaam, $begindatum, $einddatum, $l
     }elseif ($d1 > $d2) {
         $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Eindatum mag niet eerder zijn dan de Begindatum';
         header("Location:activiteitAanmaken.php");
+    
+    }elseif ($minimum > $maximum) {
+        $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Minumum aantal deelnemers mag niet groter zijn dan maximum';
+        header("Location:activiteitAanmaken.php");
 
     }elseif(empty($activiteitnaam) || empty($begindatum) || empty($einddatum) || empty($locatie) || empty($minimum) || empty($maximum)){
         $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Sommige velden zijn niet ingevuld';
@@ -62,6 +66,10 @@ public function activiteitWijzigen($id, $activiteitnaam, $begindatum, $einddatum
 
     }elseif ($d1 > $d2) {
         $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Eindatum mag niet eerder zijn dan de Begindatum';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+
+    }elseif ($minimum > $maximum) {
+        $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Minumum aantal deelnemers mag niet groter zijn dan maximum';
         header('Location: ' . $_SERVER['HTTP_REFERER']);
 
     }elseif(empty($activiteitnaam) || empty($begindatum) || empty($einddatum) || empty($locatie) || empty($minimum) || empty($maximum)){
