@@ -87,6 +87,9 @@ foreach ($presentie as $singlePresentie){
 							<th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold">
 								Contact
 							</th>
+                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-bold">
+								Acties
+							</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -112,8 +115,13 @@ foreach ($presentie as $singlePresentie){
 								</p>
 							</td>";
 
-							echo 
+                            echo 
 							'
+							<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+								<form class="inline py-2" name="form1" method="POST" action="aanmeldingDelete.php">
+									<button onclick="return confirm(\'Weet je zeker dat u deze deelnemer wilt verwijderen?\')" name="verwijderen" value="'.$item['id'].'" type="submit"><i class="far fa-trash-alt"></i></button> 
+								</form>
+							</td>
 					</tr>';} ?>
 				</tbody>
 				

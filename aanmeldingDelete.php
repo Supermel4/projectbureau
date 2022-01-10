@@ -6,10 +6,10 @@ $aanmeldingen = new Aanmelding();
 // If delete button is clicked delete the user
 if(isset($_POST['verwijderen']))
 {    
-    $aanmeldingen->aanmeldingVerwijderen($_POST['verwijderen']);
+    $aanmeldingen->aanmeldingVerwijderen3($_POST['verwijderen']);
     echo '<script>
-    alert("Afmelding is mislukt! /nVul alstublieft alle velden in.")
-    window.location = "index.php";
+    alert("Verwijderen is gelukt!")
+    window.location = document.referrer;
     </script>';
 } else {
     echo '<script>

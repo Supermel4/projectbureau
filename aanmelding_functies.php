@@ -13,14 +13,36 @@ public function __construct(){
 }
 
 // Adds an attendance
-public function aanmeldingToevoegen($activiteitid, $voornaam, $achternaam, $contact) {
-    if(empty($voornaam) || empty($achternaam) || empty($contact)){
+public function aanmeldingToevoegen($activiteitid, $voornaam, $achternaam, $contactT, $contactE) {
+    if(empty($voornaam) || empty($achternaam)){
         echo '<script>
         alert("Aanmelding is mislukt!\nVul alstublieft alle velden in.")
         window.location = document.referrer;
         </script>';
+          } elseif(empty($contactE)){
+                echo '<script>
+                alert("Aanmelding is mislukt!\nVul alstublieft alle velden in.")
+                window.location = document.referrer;
+                </script>';
+            } elseif(empty($contactT)){
+                echo '<script>
+                alert("Aanmelding is mislukt!\nVul alstublieft alle velden in.")
+                window.location = document.referrer;
+                </script>';
+            } elseif (!filter_var($contactE, FILTER_VALIDATE_EMAIL)) {
+                echo '<script>
+                alert("Email bestaat niet!\nVul alstublieft een geldige email in")
+                window.location = document.referrer;
+                </script>';
+            } elseif (preg_match('/^[0-9]{10}+$/', $contactT)) {
+                echo '<script>
+                alert("Telefoonnummer bestaat niet!\nVul alstublieft een geldige telefoonnummer in")
+                window.location = document.referrer;
+                </script>';
 
     }else{
+        $contact = $contactE;
+        $contact = $contactT;
         $stmt = $this->database->connection->prepare("INSERT INTO aanmeldingen (activiteitid, voornaam,achternaam,contact) VALUES (?,?,?,?)");
         $stmt->bind_param('isss', $activiteitid, $voornaam, $achternaam, $contact);
         $stmt->execute();
@@ -55,6 +77,15 @@ public function aanmeldingVerwijderen($voornaam, $achternaam, $contact) {
     $stmt->bind_param('sss', $voornaam, $achternaam, $contact);
     $stmt->execute();
 }
+
+// Deletes an activity
+public function aanmeldingVerwijderen3($id) {
+    $stmt = $this->database->connection->prepare("DELETE FROM aanmeldingen WHERE id= ?");
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+}
+
+
 
 }
 ?>
