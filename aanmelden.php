@@ -66,17 +66,6 @@ if (isset($_GET['id'])) {
         <div class="px-4 py-5 bg-white sm:p-6">
             <div class="col-span-6 sm:col-span-3">
                 
-            					<?php
-						if (isset($errorAanmelding)) {
-						?>
-							<div class="rounded-md border border-red-500 text-center text-red-500 font-semibold p-1 mb-4">
-								<?php echo $errorAanmelding ?>
-							</div>
-						<?php
-							unset($errorAanmelding);
-						}
-					?>
-                    </div>
  <?php
             if ($id != null){
 
@@ -92,10 +81,15 @@ if (isset($_GET['id'])) {
                             <div class="flex-inherit w-60"><label class="font-semibold leading-10" leading-10>Achternaam:</label></div>
                             <div class="flex-grow"><input type="text" name="achternaam" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
                         </div>
+
                         <div class="flex flex-wrap my-4">
-                            <div class="flex-inherit w-60"><label class="font-semibold leading-10">Telefoonummer of E-mailadres:</label></div>
-                            <div class="flex-grow"><input type="text" name="contact" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
-                        </div>
+                         <p>
+                            <input type="radio" name="r1" id="e1" onchange="show2()"/><label class="font-semibold leading-10" leading-10>Email</label>
+                            <div class="flex-inherit w-48"><input type="radio" checked="checked" name="r1" onchange="show(this.value)"/><label class="font-semibold leading-10" leading-10>Telefoonnummer:</label></div>
+                         </p>
+                         <div id="tele" class="flex-grow"><input type="text" name="contact-t" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" placeholder="+31 6 "/></div>
+                         <div id="mail" class="flex-grow hidden"><input type="email" name="contact-e" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base"/></div>
+                         </div>
                         
                         <button type="submit" name="submit" value="Toevoegen" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-700 transition-colors duration-500">
                             Aanmelden
@@ -137,3 +131,22 @@ if (isset($_GET['id'])) {
                 &copy 2021-<?php echo date("Y");?> Melvin Cuperus producties
 </footer>
 </html>
+
+<script type="text/javascript">
+            function show(str){
+                document.getElementById('mail').classList.add('hidden');
+                document.getElementById('tele').classList.remove('hidden');
+            }
+            function show2(sign){
+                document.getElementById('mail').classList.remove('hidden');
+                document.getElementById('tele').classList.add('hidden');
+            }
+        </script>
+
+
+<!-- <p>
+        <input type="radio" name="r1" id="e1" onchange="show2()"/>Email
+        <input type="radio" checked="checked" name="r1" onchange="show(this.value)"/>Telefoonnummer
+</p>
+        <div id="tele" class="flex-grow"><input type="text" name="contact" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" value="+31 6 " required /></div>
+        <div id="mail" class="flex-grow hidden"><input type="text" name="contact" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" placeholder="voorbeeld@mail.com" required /></div> -->

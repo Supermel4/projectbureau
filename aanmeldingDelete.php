@@ -1,21 +1,24 @@
 <?php
 // Includes user class
-include_once('aanmelding_functies.php');
-$aanmeldingen = new Aanmelding();
+include('sendMail.php');
+$mail = new Mail();
 
-// If delete button is clicked delete the user
-if(isset($_POST['verwijderen']))
+// If submit is clicked update the user
+if(isset($_POST['submit']))
 {    
-    $aanmeldingen->aanmeldingVerwijderen3($_POST['verwijderen']);
+    $voornaam = $_POST['voornaam'];
+    $achternaam = $_POST['achternaam'];
+    $bericht = $_POST['bericht'];
+    $mail->VerstuurAfmeldingMail($voornaam, $achternaam, $bericht);
     echo '<script>
-    alert("Verwijderen is gelukt!")
-    window.location = document.referrer;
+    alert("Het bericht is verzonden naar het projectbureau. \nEr wordt zo snel mogelijk contact met u opgenomen.")
+    window.location = "index.php";
     </script>';
 } else {
     echo '<script>
-    alert("Er is iets flink misgegaan!")
-    window.location = document.referrer;
+    alert("Het bericht verzenden is mislukt, probeer het later nog eens")
+    window.location = "index.php";
     </script>';
     die;
 }
-?>
+

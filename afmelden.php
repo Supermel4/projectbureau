@@ -66,17 +66,6 @@ if (isset($_GET['id'])) {
         <div class="px-4 py-5 bg-white sm:p-6">
             <div class="col-span-6 sm:col-span-3">
                 
-            					<?php
-						if (isset($errorAanmelding)) {
-						?>
-							<div class="rounded-md border border-red-500 text-center text-red-500 font-semibold p-1 mb-4">
-								<?php echo $errorAanmelding ?>
-							</div>
-						<?php
-							unset($errorAanmelding);
-						}
-					?>
-                    </div>
  <?php
             if ($id != null){
 
@@ -94,10 +83,10 @@ if (isset($_GET['id'])) {
                             <div class="flex-grow"><input type="text" name="achternaam" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
                         </div>
                         <div class="flex flex-wrap my-4">
-                            <div class="flex-inherit w-60"><label class="font-semibold leading-10">Telefoonummer of E-mailadres:</label></div>
-                            <div class="flex-grow"><input type="text" name="contact" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
+                            <div class="flex-inherit w-60"><label class="font-semibold leading-10">Reden voor afmelding:</label></div>
+                            <div class="flex-grow"><textarea type="text" name="bericht" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full h-40 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required></textarea></div>
                         </div>
-                        
+                            
                         <button type="submit" name="submit" value="Toevoegen" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-700 transition-colors duration-500">
                             Afmelden
                         </button>
