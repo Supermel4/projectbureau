@@ -55,6 +55,7 @@
     <div class="shadow overflow-hidden sm:rounded-md">
         <div class="px-4 py-5 bg-white sm:p-6">
             <div class="col-span-6 sm:col-span-3">
+                <form class="inline py-2" name="form1" method="POST" action="mailVersturenContact.php">
                 <div class="flex flex-wrap my-4">
                     <div class="flex-inherit w-60"><label class="font-semibold leading-10">Naam:</label></div>
                     <div class="flex-grow"><input type="text" name="naam" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
@@ -64,10 +65,15 @@
                     <div class="flex-grow"><input type="text" name="contact" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
                 </div>
                 <div class="flex flex-wrap my-4">
+                    <div class="flex-inherit w-60"><label class="font-semibold leading-10">Onderwerp:</label></div>
+                    <div class="flex-grow"><input type="text" name="onderwerp" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
+                </div>
+                <div class="flex flex-wrap my-4">
                     <div class="flex-inherit w-60"><label class="font-semibold leading-10">Bericht:</label></div>
                     <div class="flex-grow"><textarea type="text" name="bericht" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full h-40 py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required></textarea></div>
                 </div>
                     <button type="submit" name="submit" value="Verzenden" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-2xl transition-colors duration-500">Verzenden</button>
+                </form>
             </div>
         </div>
     </div>
