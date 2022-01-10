@@ -19,17 +19,12 @@ public function aanmeldingToevoegen($activiteitid, $voornaam, $achternaam, $cont
         alert("Aanmelding is mislukt!\nVul alstublieft alle velden in.")
         window.location = document.referrer;
         </script>';
-          } elseif(empty($contactE)){
+          } elseif(empty($contactE) && empty($contactT)){
                 echo '<script>
                 alert("Aanmelding is mislukt!\nVul alstublieft alle velden in.")
                 window.location = document.referrer;
                 </script>';
-            } elseif(empty($contactT)){
-                echo '<script>
-                alert("Aanmelding is mislukt!\nVul alstublieft alle velden in.")
-                window.location = document.referrer;
-                </script>';
-            } elseif (!filter_var($contactE, FILTER_VALIDATE_EMAIL)) {
+            } elseif (filter_var($contactE, FILTER_VALIDATE_EMAIL) !== false) {
                 echo '<script>
                 alert("Email bestaat niet!\nVul alstublieft een geldige email in")
                 window.location = document.referrer;
@@ -41,8 +36,11 @@ public function aanmeldingToevoegen($activiteitid, $voornaam, $achternaam, $cont
                 </script>';
 
     }else{
-        $contact = $contactE;
-        $contact = $contactT;
+        if ($contactE == null){
+            $contact = $contactT;
+        }elseif ($contactT == null){
+            $contact = $contactE;
+        }
         $stmt = $this->database->connection->prepare("INSERT INTO aanmeldingen (activiteitid, voornaam,achternaam,contact) VALUES (?,?,?,?)");
         $stmt->bind_param('isss', $activiteitid, $voornaam, $achternaam, $contact);
         $stmt->execute();
@@ -78,7 +76,7 @@ public function aanmeldingVerwijderen($voornaam, $achternaam, $contact) {
     $stmt->execute();
 }
 
-// Deletes an activity
+// Removes an attendance
 public function aanmeldingVerwijderen3($id) {
     $stmt = $this->database->connection->prepare("DELETE FROM aanmeldingen WHERE id= ?");
     $stmt->bind_param('i', $id);

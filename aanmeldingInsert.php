@@ -9,8 +9,9 @@ if(isset($_POST['submit']))
     $activiteitid = $_POST['activiteitid'];
     $voornaam = $_POST['voornaam'];
     $achternaam = $_POST['achternaam'];
-    $contact = $_POST['contact'];
-    $aanmeldingen->aanmeldingToevoegen($activiteitid, $voornaam, $achternaam, $contact);
+    $contactE = $_POST['contact-e'];
+    $contactT = $_POST['contact-t'];
+    $aanmeldingen->aanmeldingToevoegen($activiteitid, $voornaam, $achternaam, $contactE, $contactT);
 } else {
     header("location:fail.php");
     die;
