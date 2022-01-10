@@ -153,7 +153,7 @@ $activiteiten->activiteitenOphalen();
 							'
 							<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
 								<form class="inline py-2" name="form1" method="POST" action="activiteitDelete.php">
-									<button onclick="return confirm(\'Weet je zeker dat je wilt uitloggen?\')" name="verwijderen" value="'.$item['id'].'" type="submit"><i class="far fa-trash-alt"></i></button> 
+									<button onclick="return confirm(\'Weet je zeker dat u deze activiteit wilt verwijderen?\')" name="verwijderen" value="'.$item['id'].'" type="submit"><i class="far fa-trash-alt"></i></button> 
 								</form>
 								<a class="px-5" href="activiteitWijzigen.php?id='.$item['id'].'" type="submit"><i class="fas fa-edit"></i></a> 
                                 <a href="presentie.php?id='.$item['id'].'" type="submit"><i class="far fa-list-alt"></i></a> 
