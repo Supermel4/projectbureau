@@ -118,7 +118,7 @@ foreach ($presentie as $singlePresentie){
                             echo 
 							'
 							<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-								<form class="inline py-2" name="form1" method="POST" action="aanmeldingDelete.php">
+								<form class="inline py-2" name="form1" method="POST" action="presentieDelete.php">
 									<button onclick="return confirm(\'Weet je zeker dat u deze deelnemer wilt verwijderen?\')" name="verwijderen" value="'.$item['id'].'" type="submit"><i class="far fa-trash-alt"></i></button> 
 								</form>
 							</td>
