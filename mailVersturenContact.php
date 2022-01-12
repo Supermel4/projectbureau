@@ -1,16 +1,17 @@
 <?php
 // Includes user class
-include('sendMail.php');
+include_once('sendMail.php');
 $mail = new Mail();
 
 // If submit is clicked update the user
 if(isset($_POST['submit']))
 {    
     $naam = $_POST['naam'];
-    $contact = $_POST['contact'];
     $onderwerp = $_POST['onderwerp'];
     $bericht = $_POST['bericht'];
-    $mail->VerstuurContactMail($naam, $contact, $onderwerp, $bericht);
+    $contactE = $_POST['contact-e'];
+    $contactT = $_POST['contact-t'];
+    $mail->VerstuurContactMail($naam, $onderwerp, $bericht, $contactE, $contactT);
     echo '<script>
     alert("Het bericht is verzonden naar het projectbureau. \nEr wordt zo snel mogelijk contact met u opgenomen.")
     window.location = "index.php";

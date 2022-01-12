@@ -61,9 +61,13 @@
                     <div class="flex-grow"><input type="text" name="naam" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
                 </div>
                 <div class="flex flex-wrap my-4">
-                    <div class="flex-inherit w-60"><label class="font-semibold leading-10">Telefoonummer of E-mailadres:</label></div>
-                    <div class="flex-grow"><input type="text" name="contact" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
-                </div>
+                         <p>
+                            <input type="radio" name="r1" id="e1" onchange="show2()"/><label class="font-semibold leading-10" leading-10>Email</label>
+                            <div class="flex-inherit w-48"><input type="radio" checked="checked" name="r1" onchange="show(this.value)"/><label class="font-semibold leading-10" leading-10>Telefoonnummer:</label></div>
+                         </p>
+                         <div id="tele" class="flex-grow"><input type="text" name="contact-t" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" placeholder="+31 6 "/></div>
+                         <div id="mail" class="flex-grow hidden"><input type="email" name="contact-e" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base"/></div>
+                         </div>
                 <div class="flex flex-wrap my-4">
                     <div class="flex-inherit w-60"><label class="font-semibold leading-10">Onderwerp:</label></div>
                     <div class="flex-grow"><input type="text" name="onderwerp" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
@@ -89,3 +93,14 @@
 
 
 </html>
+
+<script type="text/javascript">
+            function show(str){
+                document.getElementById('mail').classList.add('hidden');
+                document.getElementById('tele').classList.remove('hidden');
+            }
+            function show2(sign){
+                document.getElementById('mail').classList.remove('hidden');
+                document.getElementById('tele').classList.add('hidden');
+            }
+        </script>

@@ -15,14 +15,34 @@ public function __construct(){
 }
 
     // Contact mail
-    public function VerstuurContactMail($naam, $contact, $onderwerp ,$bericht) {
+    public function VerstuurContactMail($naam, $onderwerp, $bericht, $contactE, $contactT) {
         
-        if(empty($naam) || empty($contact) || empty($onderwerp) || empty($bericht)){
+        if(empty($naam) || empty($onderwerp) || empty($bericht)){
             echo '<script>
             alert("Versturen mislukt!\nVul alstublieft alle velden in.")
             window.location = document.referrer;
             </script>';
+        } elseif(empty($contactE) && empty($contactT)){
+            echo '<script>
+            alert("Aanmelding is mislukt!\nVul alstublieft alle velden in.")
+            window.location = document.referrer;
+            </script>';
+        } elseif (filter_var($contactE, FILTER_VALIDATE_EMAIL) !== false) {
+            echo '<script>
+            alert("Email bestaat niet!\nVul alstublieft een geldige email in")
+            window.location = document.referrer;
+            </script>';
+        } elseif (preg_match('/^[0-9]{10}+$/', $contactT)) {
+            echo '<script>
+            alert("Telefoonnummer bestaat niet!\nVul alstublieft een geldige telefoonnummer in")
+            window.location = document.referrer;
+            </script>';
         }else{
+            if ($contactE == null){
+                $contact = $contactT;
+            }elseif ($contactT == null){
+                $contact = $contactE;
+            }
 
         $email = new \SendGrid\Mail\Mail(); 
         $email->setFrom("melvincuperus02@gmail.com", "Projectbureau");
@@ -36,7 +56,7 @@ public function __construct(){
              <br>$naam 
              <br>Contact: $contact"
         );
-        $sendgrid = new \SendGrid('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');
+        $sendgrid = new \SendGrid('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');
         try {
             $response = $sendgrid->send($email);
             $response->statusCode();
@@ -50,7 +70,13 @@ public function __construct(){
 
     // Sign out mail
     public function VerstuurAfmeldingMail($voornaam, $achternaam, $bericht) {
-        
+        if(empty($voornaam) || empty($achternaam) || empty($bericht)){
+            echo '<script>
+            alert("Versturen mislukt!\nVul alstublieft alle velden in.")
+            window.location = document.referrer;
+            </script>';
+        }else{
+
         $email = new \SendGrid\Mail\Mail(); 
         $email->setFrom("melvincuperus02@gmail.com", "Projectbureau");
         $email->setSubject("afmelden voor activiteit");
@@ -62,7 +88,7 @@ public function __construct(){
              Met vriendelijke groet,
              <br>$voornaam $achternaam
         ");
-        $sendgrid = new \SendGrid('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');
+        $sendgrid = new \SendGrid('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');
         try {
             $response = $sendgrid->send($email);
             $response->statusCode();
@@ -72,5 +98,5 @@ public function __construct(){
         }
 
     }
-
+    }
 }
