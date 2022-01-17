@@ -22,13 +22,14 @@ public function activiteitenOphalen() {
 
 // Adds an activity
 public function activiteitToevoegen($activiteitnaam, $begindatum, $einddatum, $locatie, $minimum, $maximum) {
+    $today = new DateTime();
     $d1 = new DateTime($begindatum);
     $d2 = new DateTime($einddatum);
-    if ($d1 == $d2) {
-        $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Begindatum en Eindatum mogen niet gelijk zijn';
-        header("Location:activiteitAanmaken.php");
-
-    }elseif ($d1 > $d2) {
+    if ($today > $d1) {
+        $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Er mag geen activiteit ingepland worden in het verleden';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    
+    }elseif ($d1 == $d2) {
         $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Eindatum mag niet eerder zijn dan de Begindatum';
         header("Location:activiteitAanmaken.php");
     
@@ -57,10 +58,14 @@ public function activiteitVerwijderen($id) {
 
 // Updates an activity
 public function activiteitWijzigen($id, $activiteitnaam, $begindatum, $einddatum, $locatie, $minimum, $maximum) {
-    
+    $today = new DateTime();
     $d1 = new DateTime($begindatum);
     $d2 = new DateTime($einddatum);
-    if ($d1 == $d2) {
+    if ($today > $d1) {
+        $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Er mag geen activiteit ingepland worden in het verleden';
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    
+    }elseif ($d1 == $d2) {
         $_SESSION['message'] = '<i class="fas fa-exclamation-circle"></i> Begindatum en Eindatum mogen niet gelijk zijn';
         header('Location: ' . $_SERVER['HTTP_REFERER']);
 
