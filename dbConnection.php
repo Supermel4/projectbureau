@@ -6,6 +6,12 @@ class DbConnection{
     private $password = '';
     private $database = 'projectbureau';
 
+    // private $host = 'localhost';
+    // private $username = 'deb85590_projectbeheer';
+    // private $password = 'CFDUvvrLwI';
+    // private $database = 'deb85590_projectbeheer';
+
+
     public $connection;
 
     // Makes db connection

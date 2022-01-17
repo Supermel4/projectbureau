@@ -115,27 +115,27 @@ $activiteiten->activiteitenOphalen();
 							"
 							<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
 								<p class='text-gray-900 whitespace-no-wrap'>
-								"; echo ucfirst($item['activiteitnaam']);"
+								"; echo htmlspecialchars(ucfirst($item['activiteitnaam']));"
 								</p>
 							</td>";
 							echo
 							"<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
 								<p class='text-gray-900 whitespace-no-wrap'>
-									"; echo ucfirst($newStartDate);"
+									"; echo htmlspecialchars(ucfirst($newStartDate));"
 								</p>
 							</td>";
 
 							echo 
 							"<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
 								<p class='text-gray-900 whitespace-no-wrap'>
-								"; echo ucfirst($newEndDate);" 
+								"; echo htmlspecialchars(ucfirst($newEndDate));" 
 								</p>
 							</td>";
 
 							echo 
 							"<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
 								<p class='text-gray-900 whitespace-no-wrap'>
-									"; echo ucfirst($item['locatie']);" 
+									"; echo htmlspecialchars(ucfirst($item['locatie']));" 
 								</p>
 							</td>";
 							echo 
@@ -146,7 +146,7 @@ $activiteiten->activiteitenOphalen();
 								echo '(';
 								echo $activiteiten->telPresentie($item['id'])['teller'];
 								echo ') ';
-								echo $item['minimum'] .' / '. $item['maximum'];"  
+								echo htmlspecialchars($item['minimum'] .' / '. $item['maximum']);"  
 								</p>
 							</td>";
 							echo 
