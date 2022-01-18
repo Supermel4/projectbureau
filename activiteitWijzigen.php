@@ -106,32 +106,32 @@ foreach ($activiteiten as $singleActiviteiten){
                 <input type="text" value="'.  $id .'" name="id" class="hidden" required />
                 <div class="flex flex-wrap my-4">
                     <div class="flex-inherit w-60"><label class="font-semibold leading-10">Activiteitnaam:</label></div>
-                    <div class="flex-grow"><input type="text" value="'.  $activiteiten['activiteitnaam'] .'" name="activiteitnaam" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
+                    <div class="flex-grow"><input type="text" value="'.  htmlspecialchars($activiteiten['activiteitnaam']) .'" name="activiteitnaam" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
                 </div>
  
                 <div class="flex flex-wrap my-4">
                      <div class="flex-inherit w-60"><label class="font-semibold leading-10" leading-10>Begindatum:</label></div>
-                     <div class="flex-grow"><input type="datetime-local" value="'. $activiteiten['begindatum'] .'" name="begindatum" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
+                     <div class="flex-grow"><input type="datetime-local" value="'. htmlspecialchars($activiteiten['begindatum']) .'" name="begindatum" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
                 </div>
 
                 <div class="flex flex-wrap my-4">
                      <div class="flex-inherit w-60"><label class="font-semibold leading-10" leading-10>Einddatum:</label></div>
-                     <div class="flex-grow"><input type="datetime-local" value="'.  $activiteiten['einddatum'] .'" name="einddatum" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
+                     <div class="flex-grow"><input type="datetime-local" value="'.  htmlspecialchars($activiteiten['einddatum']) .'" name="einddatum" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
                 </div>
 
                 <div class="flex flex-wrap my-4">
                     <div class="flex-inherit w-60"><label class="font-semibold leading-10" leading-10>Locatie:</label></div>
-                    <div class="flex-grow"><input type="text" value="'.  $activiteiten['locatie'] .'" name="locatie" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
+                    <div class="flex-grow"><input type="text" value="'.  htmlspecialchars($activiteiten['locatie']) .'" name="locatie" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
                 </div>
 
                 <div class="flex flex-wrap my-4">
                     <div class="flex-inherit w-60"><label class="font-semibold leading-10" leading-10>Minimum:</label></div>
-                    <div class="flex-grow"><input type="text" value="'.  $activiteiten['minimum'] .'" name="minimum" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
+                    <div class="flex-grow"><input type="text" value="'.  htmlspecialchars($activiteiten['minimum']) .'" name="minimum" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
                 </div>
 
                 <div class="flex flex-wrap my-4">
                     <div class="flex-inherit w-60"><label class="font-semibold leading-10" leading-10>Maximum:</label></div>
-                    <div class="flex-grow"><input type="text" value="'.  $activiteiten['maximum'] .'" name="maximum" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
+                    <div class="flex-grow"><input type="text" value="'.  htmlspecialchars($activiteiten['maximum']) .'" name="maximum" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base" required /></div>
                 </div>
 
                 <button type="submit" name="submit" value="Toevoegen" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-700 transition-colors duration-500">
