@@ -24,7 +24,7 @@ $activiteiten->activiteitenOphalen();
     <link href="src/tailwind.css" rel="stylesheet">
     <link href="assets/fontawesome/css/solid.css" rel="stylesheet">
     <link href="//use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
-
+    <title>Activiteiten</title>
     <script type="text/javascript" src="assets/navbar.js"></script>
 </head>
 

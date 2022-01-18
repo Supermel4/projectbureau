@@ -20,6 +20,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 	<link href="src/tailwind.css" rel="stylesheet">
 	<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 	<link href="assets/fontawesome/css/solid.css" rel="stylesheet">
+	<title>Inloggen</title>
 </head>
 
 <body>

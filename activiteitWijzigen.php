@@ -33,6 +33,7 @@ foreach ($activiteiten as $singleActiviteiten){
 	<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
 	<link href="assets/fontawesome/css/solid.css" rel="stylesheet">
 	<script type="text/javascript" src="assets/navbar.js"></script>
+    <title>Activiteit wijzigen</title>
 </head>
 
 <body>
