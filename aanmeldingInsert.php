@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
     $achternaam = $_POST['achternaam'];
     $contactE = $_POST['contact-e'];
     $contactT = $_POST['contact-t'];
-    $aanmeldingen->aanmeldingToevoegen($activiteitid, $voornaam, $achternaam, $contactE, $contactT);
+    $aanmeldingen->aanmeldingToevoegen($activiteitid, $voornaam, $achternaam, $contactT, $contactE);
 } else {
     header("location:fail.php");
     die;
