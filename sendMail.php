@@ -56,7 +56,7 @@ public function __construct(){
              <br>$naam 
              <br>Contact: $contact"
         );
-        $sendgrid = new \SendGrid('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');
+        $sendgrid = new \SendGrid('');
         try {
             $response = $sendgrid->send($email);
             $response->statusCode();
@@ -88,7 +88,7 @@ public function __construct(){
              Met vriendelijke groet,
              <br>$voornaam $achternaam
         ");
-        $sendgrid = new \SendGrid('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');
+        $sendgrid = new \SendGrid('');
         try {
             $response = $sendgrid->send($email);
             $response->statusCode();
