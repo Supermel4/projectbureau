@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
     $bericht = $_POST['bericht'];
     $contactE = $_POST['contact-e'];
     $contactT = $_POST['contact-t'];
-    $mail->VerstuurContactMail($naam, $onderwerp, $bericht, $contactE, $contactT);
+    $mail->VerstuurContactMail($naam, $onderwerp, $bericht, $contactT, $contactE);
     echo '<script>
     alert("Het bericht is verzonden naar het projectbureau. \nEr wordt zo snel mogelijk contact met u opgenomen.")
     window.location = "index.php";

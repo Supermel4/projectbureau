@@ -25,7 +25,7 @@ private function checkContact($contactE, $contactT){
         }else{
             return 1;
         }
-}
+    }
 }
 
 // Adds an attendance
@@ -67,40 +67,6 @@ public function aanmeldingToevoegen($activiteitid, $voornaam, $achternaam, $cont
         </script>';
     }
 }
-
-// Removes an attendance
-public function aanmeldingVerwijderen2($voornaam, $achternaam, $contact) {
-    if(empty($voornaam) || empty($achternaam) || empty($contact)){
-        echo '<script>
-        alert("Afmelding is mislukt! \nVul alstublieft alle velden in.")
-        window.location = "afmelding.php";
-        </script>';
-
-    }else{
-        $stmt = $this->database->connection->prepare("INSERT INTO aanmeldingen (voornaam,achternaam,contact) VALUES (?,?,?)");
-        $stmt->bind_param('sss', $voornaam, $achternaam, $contact);
-        $stmt->execute();
-        echo '<script>
-        alert("Afmelding is gelukt!")
-        window.location = "index.php";
-        </script>';
-    }
-}
-
-public function aanmeldingVerwijderen($voornaam, $achternaam, $contact) {
-    $stmt = $this->database->connection->prepare("DELETE FROM aanmeldingen WHERE voornaam= ?, achterbaan= ?, contact= ?");
-    $stmt->bind_param('sss', $voornaam, $achternaam, $contact);
-    $stmt->execute();
-}
-
-// Removes an attendance
-public function aanmeldingVerwijderen3($id) {
-    $stmt = $this->database->connection->prepare("DELETE FROM aanmeldingen WHERE id= ?");
-    $stmt->bind_param('i', $id);
-    $stmt->execute();
-}
-
-
 
 }
 ?>
