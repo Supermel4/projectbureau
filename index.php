@@ -79,16 +79,16 @@ $activiteiten->activiteitenOphalen();
                             $newEndDate = strftime("%R", strtotime($orgEndDate));  
 
                             $teller = $activiteiten->telPresentie($item['id'])['teller'];
-                            $plekkenOver = ($item['maximum']) - $teller;
+                            $maximum = ($item['maximum']);
+                            $plekkenOver = $maximum - $teller;
                             if ($plekkenOver <= 0) {
-                            $hoi = 'De activiteit is vol';
+                            $toonPlekken = 'De activiteit is vol';
                             }elseif ($plekkenOver == 1){
-                            $hoi = 'Er is nog '.$plekkenOver.' plek over';
+                            $toonPlekken = 'Er is nog '.$plekkenOver.' plek over';
                             }else{
-                            $hoi = 'Er zijn nog '.$plekkenOver.' plekken over';
+                            $toonPlekken = 'Er zijn nog '.$plekkenOver.' plekken over';
                             }
                             
-
 							echo '
 							<div class="w-full h-68 flex md:justify-around justify-between flex-col mt-5 ml-2">
 							<div class="p-2 mx-2 my-2 place-items-center text-white bg-gray-400 rounded-3xl">
@@ -98,7 +98,7 @@ $activiteiten->activiteitenOphalen();
 							<h1 class="text-center">Locatie: <b>'.htmlspecialchars(ucfirst($item['locatie'])).'</b></h1>
                             <br>
                             <h1 class="text-center">Minimum aantal deelenemers: <b>'.htmlspecialchars(($item['minimum'])).'</b> en maximum aantal deelenemers <b>'.htmlspecialchars(($item['maximum'])).'</b></h1>
-                            <h1 class="text-center"><b>'.$hoi.'</b> </h1>
+                            <h1 class="text-center"><b>'.$toonPlekken.'</b> </h1>
                             <br>
                             '. ( ($plekkenOver <= 0) ? ("") : '<a href="aanmelden.php?id='.$item['id'].'""><button class="bg-green-400 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-2xl transition-colors duration-500"><i class="fas fa-plus"></i> Aanmelden</button></a>
                             ' ) .'

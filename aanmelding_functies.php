@@ -30,8 +30,29 @@ private function checkContact($contactE, $contactT){
 
 // Adds an attendance
 public function aanmeldingToevoegen($activiteitid, $voornaam, $achternaam, $contactT, $contactE) {
-    // return filter_var($contactE, FILTER_VALIDATE_EMAIL);
-    if(empty($voornaam) || empty($achternaam)){
+
+            // request activiteiten
+            include_once('activiteit_functies.php');
+        
+            // Requests users
+            $activiteiten = new Activiteit();
+            $activiteiten->activiteitenOphalen();
+         // Requests all groups
+         $activiteiten_result = $activiteiten->activiteitOphalen($activiteitid);
+
+         // Loops through groups
+         foreach ($activiteiten_result as $item)
+         {
+            $teller = $activiteiten->telPresentie($item['id'])['teller'];
+            $maximum = ($item['maximum']);
+            $plekkenOver = $maximum - $teller;
+            if ($plekkenOver <= 0) {
+                echo '<script>
+                alert("Activeit is vol!\nDonderstraal een eind op")
+                window.location = document.referrer;
+                </script>';
+                break;
+        }elseif(empty($voornaam) || empty($achternaam)){
         echo '<script>
         alert("Aanmelding is mislukt!\nVul alstublieft alle velden in.")
         window.location = document.referrer;
@@ -66,6 +87,14 @@ public function aanmeldingToevoegen($activiteitid, $voornaam, $achternaam, $cont
         window.location = "index.php";
         </script>';
     }
+}
+}
+
+// Removes an attendance
+public function aanmeldingVerwijderen3($id) {
+    $stmt = $this->database->connection->prepare("DELETE FROM aanmeldingen WHERE id= ?");
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
 }
 
 }
